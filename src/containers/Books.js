@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { books } from '../data';
-export default class Book extends Component {
+import Book from '../components/Book';
+
+export default class Books extends Component {
     constructor(props) {
         super(props)
     }
@@ -21,16 +23,7 @@ export default class Book extends Component {
                         {
                             books.map(book => {
                                 return (
-                                    <tr key={book.id}>
-                                        <td>{book.id}</td>
-                                        <td>{book.title}</td>
-                                        <td>{book.author}</td>
-                                        <td>{book.year}</td>
-                                        <td>
-                                            <butoon type="button" className="btn btn-danger">Delete</butoon>
-                                            <butoon type="button" className="btn btn-default">Edit</butoon>
-                                        </td>
-                                    </tr>
+                                    <Book key={book.id} book={book}/>
                                 )
                             })
                         }
